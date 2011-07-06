@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 namespace MouseAlive {
     public partial class MouseAlive : Form {
+
         public MouseAlive() {
             InitializeComponent();
         }
@@ -21,6 +22,7 @@ namespace MouseAlive {
 
         private void MouseAlive_Load(object sender, EventArgs e) {
             minimizeToTray();
+            keepAlive();
         }
 
         private void minimizeToTray() {
@@ -33,5 +35,9 @@ namespace MouseAlive {
             this.Close();
         }
 
+        private void keepAlive() {
+            MouseRunner runner = new MouseRunner();
+            runner.Start();
+        }
     }
 }
