@@ -6,27 +6,27 @@ namespace MouseAlive.Tests {
     [TestFixture]
     class MouseUtilitiesTests {
 
+        private Point point;
+
         [SetUp]
         public void SetUp() {
-
+            point = MouseUtilities.GetMousePosition();
         }
 
         [Test]
         public void CurrentMousePositionIsNotNull() {
-            var point = MouseUtilities.GetMousePosition();
             Assert.IsNotNull(point);
         }
 
         [Test]
         public void CurrentMousePositionCoordinatesAreNotNegative() {
-            var point = MouseUtilities.GetMousePosition();
             Assert.IsTrue(point.X > 0);
             Assert.IsTrue(point.Y > 0);
         }
 
         [Test]
         public void NewMousePositionDoesNotEqualOldMousePositionAfterMouseMove() {
-            var oldPoint = MouseUtilities.GetMousePosition();
+            var oldPoint = point;
             MouseUtilities.MoveMouse();
             var newPoint = MouseUtilities.GetMousePosition();
             Assert.AreNotEqual(oldPoint, newPoint);
@@ -34,7 +34,7 @@ namespace MouseAlive.Tests {
 
         [Test]
         public void NewMouseXPositionIsOneGreaterThanOldMouseXPosition() {
-            var oldPoint = MouseUtilities.GetMousePosition();
+            var oldPoint = point;
             MouseUtilities.MoveMouse();
             var newPoint = MouseUtilities.GetMousePosition();
             Assert.AreEqual(oldPoint.X + 1, newPoint.X);
@@ -42,7 +42,7 @@ namespace MouseAlive.Tests {
 
         [Test]
         public void NewMouseYPositionIsEqualToTheOldMouseYPosition() {
-            var oldPoint = MouseUtilities.GetMousePosition();
+            var oldPoint = point;
             MouseUtilities.MoveMouse();
             var newPoint = MouseUtilities.GetMousePosition();
             Assert.AreEqual(oldPoint.Y, newPoint.Y);
@@ -50,7 +50,7 @@ namespace MouseAlive.Tests {
 
         [Test]
         public void NewMouseCoordinatesAreEqualToTheOldMouseCoordinatesOnMoveBack() {
-            var oldPoint = MouseUtilities.GetMousePosition();
+            var oldPoint = point;
             MouseUtilities.MoveMouse();
             MouseUtilities.MoveMouseBack();
             var newPoint = MouseUtilities.GetMousePosition();
