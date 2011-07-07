@@ -7,6 +7,6 @@ MouseAlive will move the mouse 1px and back over a 5 minute time interval to kee
 Copyright
 ---------
 
-Copyright (c) 2010 <a href="http://creatingcode.com">Robert Greiner</a>. 
+Copyright (c) 2011 <a href="http://creatingcode.com">Robert Greiner</a>. 
 
 MouseAlive is released under the <a href="http://ospl.ws">Open Source Public License</a>. See LICENSE for details.
